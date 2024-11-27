@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leer CSV desde Google Sheets</title>
+    <script>
+        async function fetchCSV() {
+            const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vStBU_0ly28XNjy8fIKGMos3Iqp7gYlRyXzC-gcs4-2kDJqukhP2g1X74EC07Lw2K0A7NDk6gpqqNZj/pub?output=csv';
+            const response = await fetch(url);
+            const data = await response.text();
+            
+            // Convierte CSV a una tabla para mostrar en el HTML
+            const rows = data.split("\n").map(row => row.split(","));
+            let tableHTML = "<table border='1'>";
+            rows.forEach(row => {
+                tableHTML += "<tr>" + row.map(cell => `<td>${cell}</td>`).join("") + "</tr>";
+            });
+            tableHTML += "</table>";
+            document.getElementById('output').innerHTML = tableHTML;
+        }
+    </script>
+</head>
+<body>
+    <h1>Leer CSV desde Google Sheets</h1>
+    <button onclick="fetchCSV()">Cargar Datos</button>
+    <div id="output"></div>
+</body>
+</html>
