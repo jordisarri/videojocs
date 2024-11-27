@@ -37,7 +37,7 @@
     <!-- JavaScript para cargar el CSV -->
     <script>
         async function fetchCSV() {
-            const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vStBU_0ly28XNjy8fIKGMos3Iqp7gYlRyXzC-gcs4-2kDJqukhP2g1X74EC07Lw2K0A7NDk6gpqqNZj/pub?gid=468473510&single=true&output=csv'; // Tu enlace CSV
+            const url = 'https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vStBU_0ly28XNjy8fIKGMos3Iqp7gYlRyXzC-gcs4-2kDJqukhP2g1X74EC07Lw2K0A7NDk6gpqqNZj/pub?gid=468473510&single=true&output=csv'; // Tu enlace CSV
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
